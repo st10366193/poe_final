@@ -1,0 +1,149 @@
+﻿<Window x:Class="poe_final.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:poe_final"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <TabControl>
+        <!-- Tab 1: Chat Feature -->
+        <TabItem Header="Chat">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Title -->
+                <TextBlock Text="Chat Interface" 
+                           HorizontalAlignment="Center" 
+                           FontWeight="Bold" 
+                           Grid.Row="0"/>
+
+                <!-- List view to show chats -->
+                <ListView x:Name="show_chats"
+                          Grid.Row="1"
+                          Margin="10"
+                          MouseDoubleClick="show_chats_MouseDoubleClick"/>
+
+                <!-- Textbox -->
+                <TextBox x:Name="user_question"
+                         Grid.Row="2"
+                         Height="30"
+                         Margin="10,5"/>
+
+                <!-- Button -->
+                <Button Content="Ask Question"
+                        Grid.Row="3"
+                        Height="30"
+                        Margin="10,5"
+                        Click="ask_question"/>
+            </Grid>
+        </TabItem>
+
+        <!-- Tab 2: Quiz Game -->
+        <TabItem Header="Quiz">
+            <Grid>
+                <StackPanel VerticalAlignment="Center">
+                    <!-- Title -->
+                    <TextBlock Text="Cybersecurity Quiz"
+                               HorizontalAlignment="Center"
+                               FontWeight="Bold"
+                               Margin="0,0,0,20"/>
+
+                    <!-- Question display -->
+                    <TextBlock x:Name="DisplayQuestion"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,20"
+                               TextWrapping="Wrap"
+                               Width="300"/>
+
+                    <!-- Answer buttons -->
+                    <Button x:Name="FirstchoiceButton"
+                            Click="HandlerAnswerselection"
+                            Padding="10"
+                            Margin="5"/>
+
+                    <Button x:Name="SecondchoiceButton"
+                            Click="HandlerAnswerselection"
+                            Padding="10"
+                            Margin="5"/>
+
+                    <Button x:Name="ThirdchoiceButton"
+                            Click="HandlerAnswerselection"
+                            Padding="10"
+                            Margin="5"/>
+
+                    <Button x:Name="FourthchoiceButton"
+                            Click="HandlerAnswerselection"
+                            Padding="10"
+                            Margin="5"/>
+
+                    <!-- Next button and score -->
+                    <Grid Margin="0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="NextQuestion"
+                                Content="Next"
+                                Click="HandleNextQuestion"
+                                Padding="10"
+                                Background="AliceBlue"
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"/>
+
+                        <TextBlock x:Name="DisplayScore"
+                                    Text="Score: 0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Grid.Column="1"
+                                    Margin="10,0"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+
+        <!-- Tab 3: Emotion Detection -->
+        <TabItem Header="Emotion">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Input -->
+                <TextBox x:Name="emotion"
+                         Grid.Row="0"
+                         Height="30"
+                         Width="200"
+                         Margin="10"
+                         HorizontalAlignment="Center"/>
+
+                <!-- Button -->
+                <Button Content="Analyze Emotion"
+                        Grid.Row="1"
+                        Height="30"
+                        Width="200"
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        Click="emotions"/>
+
+                <!-- Results -->
+                <TextBlock x:Name="show_emotion_detected"
+                           Grid.Row="2"
+                           Text="Waiting for your input..."
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"
+                           Width="300"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
